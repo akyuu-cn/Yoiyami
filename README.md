@@ -4,7 +4,7 @@
 <h3>- 宵闇 -</h3>
 </div>
 
-[![](readme_resources/yoiyami.png)](https://akyuu.cn)
+[![](readme_resources/yoiyami.webp)](https://akyuu.cn)
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
