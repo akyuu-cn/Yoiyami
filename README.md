@@ -12,6 +12,6 @@
 
 ---
 
-### Special thanks for:
+### Special thanks for
  - Font by Heartx
  - Illust by ねるぞう
