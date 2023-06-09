@@ -9,3 +9,9 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
 ### Now published on [akyuu.cn](https://akyuu.cn) ヽ(✿ ﾟ▽ﾟ)ノ
+
+---
+
+### Special thanks for:
+ - Font by Heartx
+ - Illust by ねるぞう
