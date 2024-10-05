@@ -2,251 +2,254 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>ヨイヤミ『宵闇』</title>
-    <link rel="shortcut icon" href="./resources/yoiyami.ico">
-    
-    <style type="text/css">
-        a {
-            text-decoration: none;
-        }
+  <meta charset="utf-8">
+  <title>ヨイヤミ『宵闇』</title>
+  <link rel="shortcut icon" href="./yoiyami.ico">
 
-        a:link {
-            color: rgb(255, 255, 255);
-            transition: 200ms;
-        }
-
-        a:visited {
-            color: rgb(255, 255, 255);
-            transition: 200ms;
-        }
-
-        a:hover {
-            color: rgb(213, 213, 213);
-            transition: 200ms;
-        }
-
-        a:active {
-            color: rgb(229, 229, 229);
-            transition: 200ms;
-        }
-
-        .bg-pic {
-            background-image: url("./resources/bg.webp");
-            background-size: cover;
-            background-position: center;
-            position: absolute;
-            left: -5%;
-            top: -5%;
-            height: 110%;
-            width: 110%;
-            animation-name: bg;
-            animation-duration: 3s;
-        }
-
-        .bg-akyuu {
-            background-image: url("./resources/bg_akyuu.webp");
-            background-size: cover;
-            background-position: center;
-            position: absolute;
-            left: -5%;
-            top: -5%;
-            height: 110%;
-            width: 110%;
-            animation-name: bg;
-            animation-duration: 3s;
-        }
-
-        .bg-overlay1 {
-            background-image: url("./resources/overlay.webp");
-            background-size: cover;
-            background-position: center;
-            position: absolute;
-            size: 50%;
-            left: -5%;
-            top: -5%;
-            height: 110%;
-            width: 110%;
-            animation-name: bg-overlay1;
-            animation-duration: 3s;
-            animation-fill-mode: forwards;
-        }
-
-        .bg-overlay2 {
-            background-image: url("./resources/overlay2.webp");
-            background-size: cover;
-            background-position: center;
-            position: absolute;
-            size: 50%;
-            left: -5%;
-            top: -5%;
-            height: 110%;
-            width: 110%;
-            animation-name: bg-overlay1;
-            animation-duration: 3s;
-            animation-fill-mode: forwards;
-        }
+  <meta name="viewport" content="width=device-width, initial-scale=0.5" />
 
 
-        .logo-box {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: logo;
-            animation-duration: 3s;
-        }
+  <style type="text/css">
+    a {
+      text-decoration: none;
+    }
 
-        .logo {
-            max-width: 100%;
-            max-height: 70%;
-        }
+    a:link {
+      color: rgb(255, 255, 255);
+      transition: 200ms;
+    }
 
-        .text {
-            position: absolute;
-            bottom: 3%;
-            text-align: center;
-            width: 100%;
-            opacity: 0;
-            animation: text-fade-in;
-            animation-duration: 2s;
-            animation-delay: 2s;
-            animation-fill-mode: forwards;
-        }
+    a:visited {
+      color: rgb(255, 255, 255);
+      transition: 200ms;
+    }
 
-        #parallax-scene,
-        .layer {
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            margin: 0;
-        }
+    a:hover {
+      color: rgb(230, 230, 230);
+      transition: 200ms;
+    }
 
-        @keyframes bg {
-            0% {
-                filter: blur(10px);
-                transform: scale(130%);
-                opacity: 0;
-            }
+    a:active {
+      color: rgb(238, 238, 238);
+      transition: 200ms;
+    }
 
-            100% {
-                filter: blur(0px);
-                transform: scale(100%);
-                opacity: 1;
-            }
-        }
+    .layer-pic {
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      left: -3%;
+      top: -3%;
+      height: 106%;
+      width: 106%;
+    }
 
-        @keyframes bg-overlay1 {
-            0% {
+    .bg-pic {
+      background-image: url("./layer/bg.webp");
+      animation-name: bg;
+      animation-duration: 2s;
+    }
 
-                transform: scale(130%);
-                opacity: 0;
-            }
+    .overlay-edge-dark {
+      background-image: url("layer/dark.webp");
+      animation-name: bg;
+      animation-duration: 2s;
+    }
 
-            100% {
+    .bg-akyuu {
+      background-image: url("./layer/akyuu.webp");
+      opacity: 0;
+      animation-name: bg;
+      animation-duration: 2s;
+      animation-delay: 0.4s;
+      animation-fill-mode: forwards;
+    }
 
-                transform: scale(100%);
-                opacity: 0.6;
-            }
-        }
+    .bg-aya {
+      background-image: url("./layer/aya.webp");
+      opacity: 0;
+      animation-name: bg;
+      animation-duration: 2s;
+      animation-delay: 0.8s;
+      animation-fill-mode: forwards;
+    }
 
-        @keyframes logo {
-            0% {
-                filter: blur(10px);
-                transform: scale(180%);
-                opacity: 0;
-            }
+    .bg-particles {
+      animation-name: bg-overlay;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+    }
 
-            100% {
-                filter: blur(0px);
-                transform: scale(100%);
-                opacity: 1;
-            }
-        }
+    .text {
+      animation-name: fade-in;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      animation-delay: 1s;
+      opacity: 0;
+    }
 
-        @keyframes text-fade-in {
-            0% {
-                opacity: 0;
-            }
+    .logo {
+      max-width: 50%;
+      max-height: 70%;
+    }
 
-            100% {
-                opacity: 1;
-            }
-        }
-    </style>
+    .dark-overlay {
+      height: 120%;
+      width: 120%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.15);
+      animation-name: fade-in;
+      animation-duration: 2s;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+    }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    #parallax-scene,
+    .layer {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      margin: 0;
+    }
+
+    @keyframes bg {
+      0% {
+        filter: blur(10px);
+        transform: scale(130%);
+        opacity: 0;
+      }
+
+      100% {
+        filter: blur(0px);
+        transform: scale(100%);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bg-overlay {
+      0% {
+
+        transform: scale(130%);
+        opacity: 0;
+      }
+
+      100% {
+
+        transform: scale(100%);
+        opacity: 0.6;
+      }
+    }
+
+    @keyframes logo {
+      0% {
+        filter: blur(10px);
+        transform: scale(180%);
+        opacity: 0;
+      }
+
+      100% {
+        filter: blur(0px);
+        transform: scale(100%);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+
+  <script src="./js/parallax.min.js"></script>
+  <script src="./js/particles.js"></script>
 </head>
 
-<body style="background-color: rgb(23, 23, 23);overflow: hidden;">
+<body style="background-color: rgb(222, 222, 222);overflow: hidden;">
 
 
-    <div data-pointer-events="true" id="parallax-scene">
+  <div data-pointer-events="true" id="parallax-scene">
 
-        <!-- 底板 -->
-        <div class="layer" data-depth="0.15">
-            <div class="bg-pic"></div>
-        </div>
-
-        <!-- 雪1 -->
-        <div class="layer" data-depth="0.25">
-            <div class="bg-overlay1"></div>
-        </div>
-
-        <!-- 阿求 -->
-        <div class="layer" data-depth="0.35">
-            <div class="bg-akyuu"></div>
-        </div>
-
-        <!-- 雪2 -->
-        <div class="layer" data-depth="0.45">
-            <div class="bg-overlay2"></div>
-        </div>
-
-        <!-- logo -->
-        <div class="layer" data-depth="0.6">
-            <div class="logo-box">
-                <img src="./resources/logo.webp" class="logo"></img>
-            </div>
-        </div>
-
-        <!-- 链接 -->
-        <div class="layer" data-depth="0.4">
-            <div class="text">
-                <font size="5" style="color: rgb(183, 183, 183);font-weight:500;text-shadow: 2px 2px 3px #6d6d6d;">
-                    <a href="https://blog.akyuu.cn">Blog</a>
-                    &nbsp;|&nbsp;
-                    <a href="https://koishi.akyuu.cn">PotatoBot</a>
-                    &nbsp;|&nbsp;
-                    <a href="https://cloud.akyuu.cn">PotatoCloud</a>
-                    &nbsp;|&nbsp;
-                    <a href="https://utils.akyuu.cn">PotatoUtils</a>
-                    &nbsp;|&nbsp;
-                    <a href="https://qzmrt.akyuu.cn">QZMRT</a>
-                    &nbsp;|&nbsp;
-                    <a href="https://uof.edu.kg">UOF</a>
-                </font>
-                <br /><br />
-                <font size="2" style="color:rgb(255, 255, 255);opacity: 0.3;">
-                    Designed by RLt | Font by Heartx | Illust by ねるぞう | Hosted on "YOIYAMI"
-                </font>
-            </div>
-        </div>
-
+    <!-- 底板 -->
+    <div class="layer" data-depth="0.1">
+      <div class="layer-pic bg-pic"></div>
     </div>
 
-    <script>
-        // Parallax 初始化
-        setTimeout(() => {
-            var scene = document.getElementById('parallax-scene')
-            var parallaxInstance = new Parallax(scene)
-            console.log(parallaxInstance)
-        }, 3000);
-    </script>
+    <!-- 边缘暗化层 -->
+    <div class="layer" data-depth="0.1">
+      <div class="layer-pic overlay-edge-dark"></div>
+    </div>
+
+    <div class="dark-overlay"></div>
+
+    <!-- 阿求 -->
+    <div class="layer" data-depth="0.2">
+      <div class="layer-pic bg-akyuu"></div>
+    </div>
+
+    <!-- 文 -->
+    <div class="layer" data-depth="0.25">
+      <div class="layer-pic bg-aya"></div>
+    </div>
+
+    <div class="dark-overlay"></div>
+
+    <!-- 雪 -->
+    <div class="layer" data-depth="0.3">
+      <div id="particles" class="layer-pic bg-particles"></div>
+      <script>
+        particlesJS.load('particles', './js/particlesjs-config.json', function() {
+          console.log('callback - particles.js config loaded')
+        })
+      </script>
+    </div>
+
+    <!-- logo -->
+    <div id="logo-area" class="layer" data-depth="0.3">
+      <div class="text" style="position: absolute;bottom: 3rem;right: 3rem;">
+        <div>
+          <img src="./layer/logo_right.webp"></img>
+        </div>
+        <div style="text-align: end;margin-right: 1.5rem;">
+          <div style="color: rgb(255, 255, 255);font-weight:500;text-shadow: 2px 2px 2px #00000080;font-size: x-large;">
+            <a href="https://blog.akyuu.cn">Blog</a>
+            &nbsp;·&nbsp;
+            <a href="https://koishi.akyuu.cn">PotatoBot</a>
+            &nbsp;·&nbsp;
+            <a href="https://cloud.akyuu.cn">PotatoCloud</a>
+            &nbsp;·&nbsp;
+            <a href="https://utils.akyuu.cn">PotatoUtils</a>
+            &nbsp;·&nbsp;
+            <a href="https://qzmrt.akyuu.cn">QZMRT</a>
+            &nbsp;·&nbsp;
+            <a href="https://uof.edu.kg">UOF</a>
+          </div>
+          <div style="color:rgb(255, 255, 255);opacity: 0.6;font-size: small;margin-top: 0.4rem;">
+            Designed by RLt · Illust by kaze · Hosted on "YOIYAMI_V3"
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Parallax 初始化
+    setTimeout(() => {
+      var scene = document.getElementById('parallax-scene')
+      var parallaxInstance = new Parallax(scene)
+      console.log(parallaxInstance)
+    }, 3000)
+  </script>
 
 </body>
 
