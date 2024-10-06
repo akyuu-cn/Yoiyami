@@ -286,7 +286,7 @@
   <!-- 关于 -->
   <div id="about" onclick="buttonClose()">
     <div id="about-inner">
-      <div style="display: flex;animation-name: fade-in;animation-duration: 800ms;animation-fill-mode: forwards;animation-delay: 100ms;opacity: 0;">
+      <div id="about-namecard">
         <img src="./avatar.jpg" style="width: 5rem;height: 5rem;margin-right: 1.5rem; border-radius: 50%;aspect-ratio: 1;"></img>
         <div style="display: flex;flex-direction: column;justify-content: center;">
           <div style="font-size: 2.5rem;font-weight: 800;margin-top: -0.5rem;font-family: serif;">
@@ -297,7 +297,7 @@
           </div>
         </div>
       </div>
-      <div style="animation-name: fade-in;animation-duration: 800ms;animation-fill-mode: forwards;animation-delay: 300ms;opacity: 0;">
+      <div id="about-content">
         <div style="margin-top: 2rem;font-size: 1.2rem;opacity: 0.9;">
           很高兴认识你！我是 <b>RLt</b>。
         </div>
@@ -317,25 +317,25 @@
           很喜欢猫！虽然我没有猫（哭
         </div>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; font-size: 1.2rem; opacity: 0.75;animation-name: fade-in;animation-duration: 800ms;animation-fill-mode: forwards;animation-delay: 500ms;opacity: 0;">
-        <div style="flex: 1 1 calc(50% - 0.5rem); display: flex; align-items: center;">
-          <img src="./fa_icon/email.svg" style="width: 1.2rem; height: 1.2rem; margin-top: 0.2rem; margin-right: 0.75rem; filter: invert();">
+      <div id="about-contact">
+        <div>
+          <img src="./fa_icon/email.svg">
           <div>ltfjx2333@gmail.com</div>
         </div>
-        <div style="flex: 1 1 calc(50% - 0.5rem); display: flex; align-items: center;">
-          <img src="./fa_icon/qq.svg" style="width: 1.2rem; height: 1.2rem; margin-top: 0.2rem; margin-right: 0.75rem; filter: invert();">
+        <div>
+          <img src="./fa_icon/qq.svg">
           <div>2114085565</div>
         </div>
-        <div style="flex: 1 1 calc(50% - 0.5rem); display: flex; align-items: center;">
-          <img src="./fa_icon/github.svg" style="width: 1.2rem; height: 1.2rem; margin-top: 0.2rem; margin-right: 0.75rem; filter: invert();">
+        <div>
+          <img src="./fa_icon/github.svg">
           <div>ltfjx</div>
         </div>
-        <div style="flex: 1 1 calc(50% - 0.5rem); display: flex; align-items: center;">
-          <img src="./fa_icon/bilibili.svg" style="width: 1.2rem; height: 1.2rem; margin-top: 0.2rem; margin-right: 0.75rem; filter: invert();">
+        <div>
+          <img src="./fa_icon/bilibili.svg">
           <div>RRRRLtLt</div>
         </div>
       </div>
-
+      <img src="./layer/about_bg.png" id="about-bg"></img>
     </div>
   </div>
 
@@ -355,13 +355,93 @@
     }
 
     #about-inner {
-      background-color: rgba(0, 0, 0, 0.4);
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.35);
       border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
       color: #fff;
       padding: 2.5rem;
       display: flex;
       flex-direction: column;
+    }
+
+    #about-namecard {
+      display: flex;
+      animation-name: fade-in;
+      animation-duration: 800ms;
+      animation-fill-mode: forwards;
+      animation-delay: 100ms;
+      opacity: 0;
+    }
+
+    #about-content {
+      animation-name: fade-in;
+      animation-duration: 800ms;
+      animation-fill-mode: forwards;
+      animation-delay: 300ms;
+      opacity: 0;
+    }
+
+    #about-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      margin-right: 6rem;
+      font-size: 1.2rem;
+      animation-name: fade-in-75;
+      animation-duration: 800ms;
+      animation-fill-mode: forwards;
+      animation-delay: 500ms;
+      opacity: 0;
+    }
+
+    #about-contact div {
+      flex: 1 1 calc(50% - 0.5rem);
+      display: flex;
+      align-items: center;
+    }
+
+    #about-contact div img {
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-top: 0.2rem;
+      margin-right: 0.75rem;
+      filter: invert();
+    }
+
+    #about-bg {
+      position: absolute;
+      bottom: 2rem;
+      right: -1rem;
+      width: 18rem;
+      overflow: hidden;
+      z-index: -1;
+      animation-name: fade-in-50;
+      animation-duration: 800ms;
+      animation-fill-mode: forwards;
+      animation-delay: 400ms;
+      opacity: 0;
+    }
+
+    @keyframes fade-in-75 {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0.75;
+      }
+    }
+
+    @keyframes fade-in-50 {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0.5;
+      }
     }
   </style>
 
@@ -389,11 +469,14 @@
     }
 
     function buttonClose() {
-      document.getElementById("about").style.animationName = "fade-out"
-      setTimeout(() => {
-        document.getElementById("about").style.display = "none"
-      }, 300)
-      document.getElementById("parallax-scene").style.animationName = "clear"
+      const innerDiv = document.getElementById('about-inner')
+      if (!innerDiv.contains(event.target)) {
+        document.getElementById("about").style.animationName = "fade-out"
+        setTimeout(() => {
+          document.getElementById("about").style.display = "none"
+        }, 300)
+        document.getElementById("parallax-scene").style.animationName = "clear"
+      }
     }
 
     function isMobile() {
