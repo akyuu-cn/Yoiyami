@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>ヨイヤミ『宵闇』</title>
+  <title>YOIYAMI-V3 | @RLt</title>
   <link rel="shortcut icon" href="./yoiyami.ico">
 
 
@@ -249,39 +249,157 @@
 
     <!-- logo -->
     <div id="logo-area" class="layer" data-depth="0.3">
-      <div class="text" style="position: absolute;bottom: 3rem;right: 3rem;">
+      <!-- 左下 -->
+      <div style="position: absolute;bottom: 3rem;left: 3rem;display: flex;flex-direction: column;align-items: flex-start;">
+
+        <div style="display: flex; align-items: center;">
+          <div id="server-status">
+
+            <div style="position: relative;margin-right: 0.5rem;">
+              <img src="./fa_icon/server.svg" style="width: 2rem;filter: invert();">
+              <img id="server-status-icon-ok" src="./fa_icon/ok.svg" style="display: none;width: 1.5rem;position: absolute;bottom: 0rem;right: -1.1rem;">
+              <img id="server-status-icon-warn" src="./fa_icon/warn.svg" style="display: none;width: 1.5rem;position: absolute;bottom: 0rem;right: -1.1rem;">
+            </div>
+
+            <div id="server-status-text-box" style="margin-left: 0.5rem;margin-top: -0.3rem;">
+              <div style="color: #fff;">服务器状态</div>
+              <div id="server-status-text" style="color: #fff;font-size: small;opacity: 0.75;"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="slogan">
+          
+        </div>
+
+        <script>
+          document.getElementById("server-status").addEventListener("click", function() {
+            window.open("https://status.akyuu.cn", "_blank")
+          })
+        </script>
+
+      </div>
+
+      <!-- 右下 -->
+      <div class="text" style="position: absolute;bottom: 3rem;right: 3rem;display: flex;flex-direction: column;align-items: flex-end;">
         <div style="text-align: end;">
           <img src="./layer/logo_right.webp"></img>
         </div>
-        <div style="text-align: end;margin-right: 1.5rem;">
-          <div style="color: rgb(255, 255, 255);font-weight:500;text-shadow: 2px 2px 2px #00000080;font-size: x-large;font-family: sans-serif;">
+        <div style="text-align: end;margin-right: 1.5rem;display: flex;">
+          <div class="links">
+            <img src="./fa_icon/blog.svg">
             <a href="https://blog.akyuu.cn">博客</a>
-            &nbsp;·&nbsp;
+            &nbsp;&nbsp;
             <!-- <a ><font title="由于 Koishi 的安全问题，临时关闭" style="opacity: 0.4;">PotatoBot</font></a>
             href="https://koishi.akyuu.cn"
             &nbsp;·&nbsp; -->
-            <a href="https://oni.akyuu.cn">ONi</a>
-            &nbsp;·&nbsp;
+            <img src="./fa_icon/gallery.svg">
+            <a href="https://gallery.akyuu.cn">画廊</a>
+            &nbsp;&nbsp;
             <!-- <a href="https://pmb.akyuu.cn">PotatoMusicBox</a>
             &nbsp;·&nbsp; -->
-            <a href="https://cloud.akyuu.cn">PotatoCloud</a>
-            &nbsp;·&nbsp;
-            <a href="https://utils.akyuu.cn">PotatoUtils</a>
-            &nbsp;·&nbsp;
-            <a href="https://status.akyuu.cn">服务器状态</a>
+            <img src="./fa_icon/cloud.svg">
+            <a href="https://cloud.akyuu.cn">云盘</a>
+            &nbsp;&nbsp;
+            <img src="./fa_icon/utils.svg">
+            <a href="https://utils.akyuu.cn">工具</a>
+            <!-- &nbsp;·&nbsp;
+            <a href="https://status.akyuu.cn">服务器状态</a> -->
             <!-- &nbsp;·&nbsp;
             <a href="https://uof.edu.kg">UOF</a> -->
-            &nbsp;·&nbsp;
+            &nbsp;&nbsp;
+            <img src="./fa_icon/about.svg">
             <a onclick="buttonAbout()" style="cursor: pointer;">关于</a>
           </div>
-          <div style="color:rgb(255, 255, 255);opacity: 0.6;font-size: small;margin-top: 0.4rem;">
-            Designed by RLt · Illust by kaze · Hosted on "YOIYAMI_V3"
-          </div>
+          <!-- <div>
+            <img src="https://status.akyuu.cn/api/status-page/main/badge?label=%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8A%B6%E6%80%81">
+          </div> -->
         </div>
       </div>
     </div>
 
   </div>
+
+  <style>
+    #slogan {
+      color: rgb(255, 255, 255);
+      font-size: small;
+      margin-top: 0.5rem;
+      margin-right: 1.25rem;
+      padding: 0.5rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      cursor: pointer;
+      animation-name: fade-in;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      animation-delay: 1s;
+      opacity: 0;
+    }
+
+    #slogan:hover {
+      background-color: rgba(0, 0, 0, 0.35);
+      transition: 200ms;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+    }
+
+    .links img {
+      height: 1.25rem;
+      filter: invert() drop-shadow(0px 0px 2px #00000080);
+    }
+
+    #logo-area .links {
+      color: rgb(255, 255, 255);
+      font-weight: 500;
+      text-shadow: 1px 1px 2px #00000080;
+      font-size: x-large;
+      font-family: sans-serif;
+    }
+
+    #server-status {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      background-color: rgba(0, 0, 0, 0.25);
+      transition: 200ms;
+      border-radius: 6px;
+      padding: 1rem;
+      align-items: center;
+      cursor: pointer;
+      animation-name: fade-in;
+      animation-duration: 800ms;
+      animation-fill-mode: forwards;
+      animation-delay: 1s;
+    }
+
+    #server-status:hover {
+      background-color: rgba(0, 0, 0, 0.35);
+      transition: 200ms;
+    }
+
+    #server-status-text-box {
+      display: none;
+    }
+
+    #server-status:hover #server-status-text-box {
+      display: block;
+      transition: 200ms;
+    }
+  </style>
 
   <!-- 关于 -->
   <div id="about" onclick="buttonClose()">
@@ -335,6 +453,7 @@
           <div>RRRRLtLt</div>
         </div>
       </div>
+      <div id="about-author">Website designed by RLt · Illust by kaze · Hosted on "YOIYAMI_V3"</div>
       <img src="./layer/about_bg.webp" id="about-bg"></img>
     </div>
   </div>
@@ -393,6 +512,17 @@
       animation-duration: 800ms;
       animation-fill-mode: forwards;
       animation-delay: 500ms;
+      opacity: 0;
+    }
+
+    #about-author {
+      margin-top: 1.5rem;
+      margin-bottom: -0.5rem;
+      font-size: small;
+      animation-name: fade-in-75;
+      animation-duration: 800ms;
+      animation-fill-mode: forwards;
+      animation-delay: 700ms;
       opacity: 0;
     }
 
@@ -482,6 +612,105 @@
     function isMobile() {
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
+
+    // 服务器状态检测
+    (async () => {
+      async function getStatus() {
+        let status = 1
+        await fetch("https://status.akyuu.cn/api/status-page/heartbeat/main").then(resp => resp.json()).then(data => {
+          for (let key in data.uptimeList) {
+            console.log(key, data.uptimeList[key])
+            if (data.uptimeList.hasOwnProperty(key)) {
+              if (data.uptimeList[key] !== 1) {
+                status = 0
+              }
+            }
+          }
+        }).catch(error => {
+          status = -1
+        })
+        return status
+      }
+
+      if ((await getStatus()) == 0) {
+        document.getElementById("server-status-icon-warn").style.display = "block"
+        document.getElementById("server-status-text").innerText = "部分服务出现故障"
+      } else if ((await getStatus()) == 1) {
+        document.getElementById("server-status-icon-ok").style.display = "block"
+        document.getElementById("server-status-text").innerText = "所有服务运行正常"
+      } else if ((await getStatus()) == -1) {
+        document.getElementById("server-status-icon-warn").style.display = "block"
+        document.getElementById("server-status-text").innerText = "服务信息获取失败"
+      }
+
+    })();
+
+    // 随机 slogan
+    (() => {
+      const slogans = [{
+        "text": "あわれ、ゆかしき日ノ環よ、沈むこと無く。",
+        "url": "https://music.163.com/song?id=434981394"
+      }, {
+        "text": "大嫌い！大好きだよ！",
+        "url": "https://music.163.com/song?id=28524850"
+      }, {
+        "text": "この聲も、猛る哀しさも、泣くことさえ叶わぬままに。",
+        "url": "https://music.163.com/song?id=29045906"
+      }, {
+        "text": "輪廻の輪を舞わせよ回せ、全てを有に繋ぐ為に。",
+        "url": "https://music.163.com/song?id=850571"
+      }, {
+        "text": "髑髏さえも愛しい、此が私の嫁入り。",
+        "url": "https://music.163.com/song?id=26118498"
+      }, {
+        "text": "You're written in my memory. I can't erase this.",
+        "url": "https://music.163.com/song?id=28627708"
+      }, {
+        "text": "さあ、穢れなき自由へと、どこまでも連れ出すわ。",
+        "url": "https://music.163.com/song?id=22654524"
+      }, {
+        "text": "そして、心抱きしめ、全ての事を願い。",
+        "url": "https://music.163.com/song?id=1968750545"
+      }, {
+        "text": "I still love you No reason, it's my fate...",
+        "url": "https://music.163.com/song?id=22645102"
+      }, {
+        "text": "悩めど悩めど答えは得られず、ならば咲かせよ刹那に飾る花。",
+        "url": "https://music.163.com/song?id=450224777"
+      }, {
+        "text": "闇の世界、光など、忘れるわ、いざ参る、闇とともに。",
+        "url": "https://music.163.com/song?id=22645094"
+      }, {
+        "text": "水面に映る月のように、儚く揺れる華の夢。",
+        "url": "https://music.163.com/song?id=32358154"
+      }, {
+        "text": "君の心に贈るわ、アネモネ。",
+        "url": "https://music.163.com/song?id=1365679730"
+      }, {
+        "text": "深い夢の彼方へ堕ちる少女、君が笑える楽園は何処にあるのか。",
+        "url": "https://music.163.com/song?id=31680146"
+      }, {
+        "text": "Der Horizont, er führt mich. Du weißt nicht wohin, doch verirrst dich nicht.",
+        "url": "https://music.163.com/song?id=1417496580"
+      }, {
+        "text": "届かないの？届きたいの？今いる自分からその先へ。",
+        "url": "https://music.163.com/song?id=22645101"
+      }, {
+        "text": "「嘘吐きめ！！裏切り者め！約束一つ守れぬ軟弱者め…！」",
+        "url": "https://music.163.com/song?id=850541"
+      }, {
+        "text": "もう二度と魅ることない、願いを皆捨てて。",
+        "url": "https://music.163.com/song?id=444267516"
+      }, {
+        "text": "神样にこの身をささげよ、光となって辉こう。",
+        "url": "https://music.163.com/song?id=29724821"
+      }]
+      const randomSlogan = slogans[Math.floor(Math.random() * slogans.length)]
+      document.getElementById("slogan").innerText = randomSlogan.text
+      document.getElementById("slogan").addEventListener("click", () => {
+        window.open(randomSlogan.url, "_blank")
+      })
+    })()
   </script>
 
 </body>
